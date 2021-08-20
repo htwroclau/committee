@@ -38,7 +38,7 @@ module Committee
 
       class << self
         def validate?(status, validate_success_only)
-          status != 204 && (!validate_success_only || (200...300).include?(status))
+          !([204, 304].include?(status)) && (!validate_success_only || (200...300).include?(status))
         end
       end
 
